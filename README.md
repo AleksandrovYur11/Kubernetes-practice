@@ -19,8 +19,8 @@ __Задачи__:
     1. Воспользоваться командой kubectl port-forward: “kubectl port-forward --address 0.0.0.0 deployment/web 8080:8000”.
     2. Перейти по адресу http://127.0.0.1:8080/hello.html.
 ***
-####__Решение:__
-#####___Этап 1:___
+__Решение:__
+___Этап 1:___
 
 Напишем сервер, для его создания используется фреймворк Flask:
 
@@ -50,7 +50,7 @@ def hello_world():
 </html>
 ```
 ***
-#####___Этап 2:___
+___Этап 2:___
 Создание Dockerfile в котором описана сборка сервера:
 
 ```
@@ -94,7 +94,7 @@ CMD ["flask", "run"]
 
 ***
 
-#####___Этап 3:___
+___Этап 3:___
 
 Далее создаём Docker image с тегом 1.0.0:
 ```
@@ -109,7 +109,7 @@ aleksandrovyur11/server   latest    ffd813ac8dd3   2 minutes ago   60.7MB
 ```
 ***
 
-#####___Этап 4:___
+___Этап 4:___
 
 Далее запустим создадим container и запустим приложение:
 
@@ -144,7 +144,7 @@ $ curl http://127.0.0.1:8000/hello.html
 
 ***
 
-#####___Этап 5:___
+___Этап 5:___
 Сделаем Push images в DockerHub:
 ```
 $ sudo docker push aleksandrovyur11/server:1.0.0
@@ -155,7 +155,7 @@ $ sudo docker push aleksandrovyur11/server:1.0.0
 
 ***
 
-#####___Этап 6:___
+___Этап 6:___
 Создадим Kubernetes Deployment manifest, запускающий container из созданного image.
 ```
 apiVersion: apps/v1
@@ -189,7 +189,7 @@ spec:
 
 ***
 
-#####___Этап 7:___
+___Этап 7:___
 Установим manifest в кластер Kubernetes.
 
 
@@ -202,7 +202,7 @@ kuber-7fd5bf4479-k9d7w                0/1     ContainerCreating   0             
 kuber-7fd5bf4479-r9rlv                0/1     ContainerCreating   0               17s
 ```
 ***
-#####___Этап 8:___
+___Этап 8:___
 
 
 
