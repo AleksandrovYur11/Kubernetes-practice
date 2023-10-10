@@ -1,6 +1,6 @@
-##ITMO Kubernetes_homework
+ITMO Kubernetes_homework
 ***
-####__Задачи__:
+__Задачи__:
 1. В качестве web-сервера для простоты можно воспользоваться Python: “python -m http.server 8000”. 
     1. Добавьте эту команду в инструкцию CMD в Dockerfile.
 2. Создать Dockerfile на основе “python:3.10-alpine”, в котором.
